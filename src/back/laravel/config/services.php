@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'quiz-api' => [
+        // 'http', 'sdk', 'fake'
+        'driver' => env('QUIZ_API_DRIVER', 'http'),
+        'baseUrl' => env('QUIZ_API_BASE_URL', 'https://quiz-api.com'),
+        'token' => env('QUIZ_API_TOKEN', ''),
+        'preferred_lang' => env('QUIZ_API_PREFERRED_LANG', 'fr'),
+    ],
 ];

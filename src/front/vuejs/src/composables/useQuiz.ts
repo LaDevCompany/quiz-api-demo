@@ -5,6 +5,8 @@ export default function useQuiz() {
         return isValidSolo(question.answers as AnswerClassic[], answers as string)
       case 'multi':
         return isValidMulti(question.answers as AnswerClassic[], answers as string[])
+      case 'pattern':
+        return isValidPattern(question.answers as AnswerPattern, answers as string)
       default:
         throw new Error('Type not implemented ;)')
     }
@@ -27,6 +29,10 @@ export default function useQuiz() {
 
       return false
     })
+  }
+
+  const isValidPattern = (answers: AnswerPattern, answer: string): boolean => {
+    return new RegExp(answers.pattern, 'gi').test(answer)
   }
 
   return {

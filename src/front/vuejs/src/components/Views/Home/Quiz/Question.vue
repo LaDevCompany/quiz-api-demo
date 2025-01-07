@@ -10,10 +10,10 @@ const colorDifficulty = computed(() => {
   switch (question.difficulty) {
     case 3:
     case 4:
-      return 'text-red-500'
+      return 'text-amber-500'
     case 5:
     case 6:
-      return 'text-orange-500'
+      return 'text-red-500'
     default:
       return 'text-blue-500'
   }

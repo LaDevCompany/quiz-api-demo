@@ -43,7 +43,7 @@ const answered = (answer: string | string[]) => {
   state.value = 'answered'
 
   // if question solo, no button => answer directly
-  if (question.type === 'solo') {
+  if (['solo', 'pattern'].includes(question.type)) {
     validation()
     return
   }
@@ -59,7 +59,7 @@ const validation = () => {
 const goNext = () => {
   chosenAnswer.value = null
 
-  question = { ...testData2 } as Question
+  question = { ...testData3 } as Question
   state.value = 'guessing'
   ++num.value
 }

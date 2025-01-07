@@ -56,6 +56,5 @@ const send = (id: string) => {
       :status="getStatus(answer)"
       @send="send"
     />
-    {{ chosenAnswer }}
   </div>
 </template>

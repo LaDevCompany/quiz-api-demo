@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import Loader from '@/components/UI/Loader.vue'
 
 const {
   type = 'button',
@@ -47,7 +48,7 @@ const sizeClass = computed(() => {
         <div class="relative">
           <span class="invisible"><slot /></span>
           <span class="flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <UILoader class="w-5" />
+            <Loader class="w-5" />
           </span>
         </div>
       </slot>

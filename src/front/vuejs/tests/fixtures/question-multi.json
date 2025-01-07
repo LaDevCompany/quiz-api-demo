@@ -1,0 +1,33 @@
+{
+  "id": "01jgpnccp0qzd9vqync8w64xea",
+  "type": "multi",
+  "title": "Lesquels de ces pays appartiennent au continent africain ?",
+  "description": "Egypt, South Africa, and Kenya are African countries; Brazil is in South America. Source: https:\/\/en.wikipedia.org\/wiki\/List_of_sovereign_states_and_dependent_territories_in_Africa",
+  "difficulty": 1,
+  "theme": {
+    "code": "geo",
+    "title": "Géographie & Géopolitique"
+  },
+  "answers": [
+    {
+      "id": "01JGPNCCNZVQEQSQWDCAEY4F3D",
+      "title": "Brésil",
+      "isValid": false
+    },
+    {
+      "id": "01JGPNCCNZVQEQSQWDCAEY4F3E",
+      "title": "Égypte",
+      "isValid": true
+    },
+    {
+      "id": "01JGPNCCNZVQEQSQWDCAEY4F3F",
+      "title": "Afrique du Sud",
+      "isValid": true
+    },
+    {
+      "id": "01JGPNCCNZVQEQSQWDCAEY4F3G",
+      "title": "Kenya",
+      "isValid": true
+    }
+  ]
+}

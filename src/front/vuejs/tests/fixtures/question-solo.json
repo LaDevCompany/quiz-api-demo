@@ -1,0 +1,28 @@
+{
+  "id": "01jgpncdnv3ca61m2ff6rfej4p",
+  "type": "solo",
+  "title": "Quel est le point d'ébullition de l'eau pure à pression atmosphérique standard ?",
+  "description": "Pure water boils at 100°C (212°F) at sea level. Source: https:\/\/en.wikipedia.org\/wiki\/Boiling_point",
+  "difficulty": 1,
+  "theme": {
+    "code": "sci",
+    "title": "Sciences & Technologie"
+  },
+  "answers": [
+    {
+      "id": "01JGPNCDNTE4X314K5F6QGHYFY",
+      "title": "50°C",
+      "isValid": false
+    },
+    {
+      "id": "01JGPNCDNTE4X314K5F6QGHYFZ",
+      "title": "100°C",
+      "isValid": true
+    },
+    {
+      "id": "01JGPNCDNTE4X314K5F6QGHYG0",
+      "title": "120°C",
+      "isValid": false
+    }
+  ]
+}

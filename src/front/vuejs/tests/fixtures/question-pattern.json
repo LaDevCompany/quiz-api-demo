@@ -1,0 +1,15 @@
+{
+  "id": "01jgpncdma43j5n40ygm1t2q6h",
+  "type": "pattern",
+  "title": "Qui a dirigé l'URSS pendant la Seconde Guerre mondiale ?",
+  "description": "Joseph Stalin was the leader of the Soviet Union during WWII. Source: https:\/\/en.wikipedia.org\/wiki\/Joseph_Stalin",
+  "difficulty": 3,
+  "theme": {
+    "code": "hist",
+    "title": "Histoire"
+  },
+  "answers": {
+    "id": "01JGPNCDM98Q5T5Z13VA6N8JZV",
+    "pattern": "staline?"
+  }
+}

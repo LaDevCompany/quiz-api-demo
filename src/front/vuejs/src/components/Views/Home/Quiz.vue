@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, reactive, ref } from 'vue'
+import { computed, provide, ref } from 'vue'
 import testData from '@/../tests/fixtures/question-solo.json'
 import testData2 from '@/../tests/fixtures/question-multi.json'
 import testData3 from '@/../tests/fixtures/question-pattern.json'
@@ -10,23 +10,14 @@ import Answers from '@/components/Views/Home/Quiz/Answers.vue'
 import useQuiz from '@/composables/useQuiz.ts'
 import Btn from '@/components/UI/Btn.vue'
 
-const emit = defineEmits()
+const emit = defineEmits(['ended'])
 
-const { isValid } = useQuiz()
+const { score, isValid } = useQuiz()
 
-let question: Question = testData as Question
-const state = ref<QuestionType>('guessing')
+let question: Question = testData2 as Question
+const state = ref<QuestionState>('guessing')
 const num = ref(1)
 const chosenAnswer = ref<string | string[] | null>(null)
-const score = reactive<{
-  easy: boolean | null
-  medium: boolean | null
-  hard: boolean | null
-}>({
-  easy: null,
-  medium: null,
-  hard: null,
-})
 
 const setChosenAnswer = (answer: string | string[]) => {
   chosenAnswer.value = answer
@@ -59,6 +50,11 @@ const validation = () => {
 const goNext = () => {
   chosenAnswer.value = null
 
+  if (num.value >= 3) {
+    emit('ended')
+    return
+  }
+
   question = { ...testData3 } as Question
   state.value = 'guessing'
   ++num.value
@@ -67,14 +63,17 @@ const goNext = () => {
 const currentDifficulty = (): Difficulties => {
   return ['easy', 'medium', 'hard'][num.value - 1] as Difficulties
 }
+
+const btnLabel = computed(() => {
+  return num.value >= 3 ? 'Terminer le Quiz ✨' : 'Prochaine question !'
+})
 </script>
 
 <template>
   <Card class="flex flex-col gap-3">
-    <QuestionComponent :question="question" :num="num" />
+    <QuestionComponent :question="question" :num="num" :score="score" />
     <hr />
     <Answers :question="question" @answer="answered" />
-    {{ score }} - {{ currentDifficulty() }}
     <Transition mode="out-in" name="slide-down">
       <div v-if="state === 'answered'">
         <hr class="mb-4" />
@@ -82,7 +81,7 @@ const currentDifficulty = (): Difficulties => {
       </div>
       <div v-else-if="state === 'validated'">
         <hr class="mb-4" />
-        <Btn size="lg" class="w-full" @click="goNext">Prochaine question !</Btn>
+        <Btn size="lg" class="w-full" @click="goNext">{{ btnLabel }}</Btn>
       </div>
     </Transition>
   </Card>

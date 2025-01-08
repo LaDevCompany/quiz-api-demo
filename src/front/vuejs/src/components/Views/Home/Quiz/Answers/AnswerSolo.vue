@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import AnswerClassic from '@/components/Views/Home/Quiz/Answers/Components/AnswerClassic.vue'
-import { inject } from 'vue'
+import { inject, type Ref } from 'vue'
 
 const emit = defineEmits(['answer'])
 const { chosenAnswer, setChosenAnswer } = inject<{
-  chosenAnswer: string
+  chosenAnswer: Ref<string | null>
   setChosenAnswer: (answer: string) => void
-}>('chosenAnswer')
+}>('chosenAnswer')!
 
 const { answers } = defineProps<{
   answers: AnswerClassic[]

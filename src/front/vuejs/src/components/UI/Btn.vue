@@ -31,13 +31,8 @@ const sizeClass = computed(() => {
 <template>
   <component
     :is="(type !== 'a' && 'button') || 'a'"
-    class="relative inline-flex items-center justify-center rounded-md transition-all duration-125 ease-out ring-inset focus:ring-4 bg-blue-400 hover:bg-blue-500 text-white"
-    :class="[
-      {
-        'opacity-80': isDisabled,
-      },
-      sizeClass,
-    ]"
+    class="relative inline-flex items-center justify-center rounded-md transition-all duration-125 ease-out ring-inset focus:ring-4 bg-blue-400 text-white"
+    :class="[isDisabled ? 'opacity-80' : 'hover:bg-blue-500', sizeClass]"
     :type="(type !== 'a' && type) || undefined"
     :disabled="isDisabled"
     :aria-busy="loading"

@@ -5,7 +5,7 @@ import { useIntervalFn } from '@vueuse/core'
 
 const emit = defineEmits(['start'])
 
-const timer = ref(3)
+const timer = ref(1)
 
 const { pause } = useIntervalFn(() => {
   --timer.value

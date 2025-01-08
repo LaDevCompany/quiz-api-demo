@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import Score from '@/components/Views/Home/Quiz/Score.vue'
 
-const { question, num } = defineProps<{
+const { question, num, score } = defineProps<{
   question: Question
   num: number
+  score: Scoring
 }>()
 
 const colorDifficulty = computed(() => {
@@ -21,7 +23,8 @@ const colorDifficulty = computed(() => {
 </script>
 
 <template>
-  <p class="text-2xl text-center select-none">
+  <p class="relative text-2xl text-center select-none">
+    <Score :score="score" />
     <span class="mr-2" :class="[colorDifficulty]">{{ num }}.</span>
     <span>{{ question.title }}</span>
   </p>

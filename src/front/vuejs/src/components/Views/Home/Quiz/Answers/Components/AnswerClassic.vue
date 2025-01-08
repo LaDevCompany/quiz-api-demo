@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed, type ComputedRef, inject } from 'vue'
+import { computed, inject, type Ref } from 'vue'
 
 const emit = defineEmits(['send'])
 
-const questionState = inject<QuestionState>('questionState')
+const questionState = inject<Ref<QuestionState>>('questionState')!
 
 const { answer, status = 'indeterminate' } = defineProps<{
   answer: AnswerClassic

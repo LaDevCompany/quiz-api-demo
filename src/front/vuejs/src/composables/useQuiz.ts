@@ -1,3 +1,11 @@
+import { reactive } from 'vue'
+
+const score = reactive<Scoring>({
+  easy: null,
+  medium: null,
+  hard: null,
+})
+
 export default function useQuiz() {
   const isValid = (question: Question, answers: string | string[]): boolean => {
     switch (question.type) {
@@ -36,6 +44,8 @@ export default function useQuiz() {
   }
 
   return {
+    score,
     isValid,
+    isValidPattern,
   }
 }

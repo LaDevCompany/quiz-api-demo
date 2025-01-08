@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import AnswerClassic from '@/components/Views/Home/Quiz/Answers/Components/AnswerClassic.vue'
-import { inject } from 'vue'
+import { inject, type Ref } from 'vue'
 
 const emit = defineEmits(['answer'])
 const { chosenAnswer, setChosenAnswer } = inject<{
-  chosenAnswer: string[]
+  chosenAnswer: Ref<string[]>
   setChosenAnswer: (answer: string[]) => void
-}>('chosenAnswer')
-const questionState = inject<QuestionState>('questionState')
+}>('chosenAnswer')!
+const questionState = inject<Ref<QuestionState>>('questionState')!
 
 const { answers } = defineProps<{
   answers: AnswerClassic[]
@@ -18,7 +18,7 @@ const getStatus = (answer: AnswerClassic): AnswerClassicStatus => {
     return 'indeterminate'
   }
 
-  if (['guessing', 'answered'].includes(questionState.value)) {
+  if (['guessing', 'answered'].includes(questionState.value ?? 'guessing')) {
     return chosenAnswer.value.includes(answer.id) ? 'selected' : 'indeterminate'
   }
 

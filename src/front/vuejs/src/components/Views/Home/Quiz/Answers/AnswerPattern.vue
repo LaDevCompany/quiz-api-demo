@@ -38,6 +38,7 @@ watchImmediate(questionState, (newState) => {
       if (input.value != undefined) {
         input.value.focus()
         input.value.value = ''
+        answer.value = ''
       }
     })
   }

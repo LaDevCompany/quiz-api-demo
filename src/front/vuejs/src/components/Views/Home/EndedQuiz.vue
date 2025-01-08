@@ -109,13 +109,13 @@ const copy = () => {
   animation-timing-function: ease;
 }
 .dot-easy {
-  animation-delay: 0ms;
+  animation-delay: 1s;
 }
 .dot-medium {
-  animation-delay: 1000ms;
+  animation-delay: 2s;
 }
 .dot-hard {
-  animation-delay: 2000ms;
+  animation-delay: 3s;
 }
 
 @keyframes fade-appear {
@@ -132,7 +132,7 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 3s;
+  animation-delay: 4s;
 }
 
 .fade-see-you {
@@ -140,7 +140,7 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 4s;
+  animation-delay: 5s;
 }
 
 .fade-last {
@@ -148,6 +148,6 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 5s;
+  animation-delay: 6s;
 }
 </style>

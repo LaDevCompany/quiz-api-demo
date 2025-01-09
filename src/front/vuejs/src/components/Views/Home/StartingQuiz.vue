@@ -23,7 +23,7 @@ watch(timer, () => {
   <Card
     class="flex flex-col !py-12 gap-2 text-center text-slate-8 dark:text-slate-3 shadow-2xl overflow-hidden"
   >
-    <h1 class="text-4xl font-bold">✨ Le quiz démarre dans :</h1>
+    <h1 class="text-4xl font-bold">✨ Le quiz du jour démarre dans :</h1>
 
     <p id="number-animation" class="text-4xl text-blue-300 mt-6">{{ timer }} ...</p>
   </Card>

@@ -4,6 +4,10 @@ import HeroIdle from '@/components/Views/Home/HeroIdle.vue'
 import StartingQuiz from '@/components/Views/Home/StartingQuiz.vue'
 import EndedQuiz from '@/components/Views/Home/EndedQuiz.vue'
 import Quiz from '@/components/Views/Home/Quiz.vue'
+import { useTitle } from '@vueuse/core'
+
+const title = useTitle()
+title.value = 'Daily Quiz - le quiz du jour ✨'
 
 const state = ref<'idle' | 'starting' | 'started' | 'ended'>('idle')
 </script>

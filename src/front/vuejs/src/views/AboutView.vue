@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import Card from '@/components/UI/Card.vue'
 import Btn from '@/components/UI/Btn.vue'
+import { useTitle } from '@vueuse/core'
+
+const title = useTitle()
+title.value = 'Daily Quiz - à propos'
 
 const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
 </script>

@@ -1,6 +1,6 @@
 <template>
   <header class="container text-xl flex justify-between items-center w-full px-3 py-4">
-    <RouterLink to="/" class="text-2xl">Daily Quiz</RouterLink>
+    <a href="/" class="text-2xl">Daily Quiz</a>
     <a
       href="https://github.com/LaDevCompany/quiz-api-demo/"
       title="github"

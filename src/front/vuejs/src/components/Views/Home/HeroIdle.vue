@@ -55,7 +55,7 @@ const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
 }
 
 .helper {
-  @apply w-0 flex justify-center items-center text-2xl rounded-full transition-colors duration-500 bg-zinc-100 text-blue-400 hover:(bg-blue-100 text-blue-600 border-3 border-solid border-blue-400) cursor-pointer overflow-hidden transform-cpu animate-forwards;
+  @apply w-0 flex justify-center items-center text-2xl rounded-full transition-all duration-500 bg-zinc-100 text-blue-400 hover:(bg-blue-100 text-blue-600 border-3 border-solid border-blue-400) cursor-pointer overflow-hidden transform-cpu animate-forwards active:(scale-80);
   animation-name: helper-appear;
   animation-duration: 1s;
   animation-delay: 5s;

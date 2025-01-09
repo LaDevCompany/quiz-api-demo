@@ -1,8 +1,6 @@
-<script setup lang="ts"></script>
-
 <template>
   <header class="container text-xl flex justify-between items-center w-full px-3 py-4">
-    <a href="https://daily-quiz.quiz-api.com" class="text-2xl">Daily Quiz</a>
+    <RouterLink to="/" class="text-2xl">Daily Quiz</RouterLink>
     <a
       href="https://github.com/LaDevCompany/quiz-api-demo/"
       title="github"

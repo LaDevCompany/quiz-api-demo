@@ -39,6 +39,8 @@ const copy = () => {
     },
   )
 }
+
+const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
 </script>
 
 <template>
@@ -73,12 +75,16 @@ const copy = () => {
         <span class="text-blue-400">{{ endingText }}</span>
       </p>
 
-      <p class="fade-see-you text-slate-400">A demain pour un nouveau quiz 🥰</p>
+      <p class="fade-see-you text-slate-400 mb-4 sm:mb-0">A demain pour un nouveau quiz 🥰</p>
+
+      <p class="fade-last absolute p-2 left-5 bottom-2 text-xs">
+        Powered by <a :href="quizApiUrl" target="_blank">Quiz API</a>
+      </p>
 
       <p
         tabindex="0"
         title="Partager le Quiz !"
-        class="fade-last absolute flex p-2 right-5 bottom-5 bg-zinc-100 rounded-full transition-all cursor-pointer opacity-85 hover:(-translate-y-1 opacity-100)"
+        class="fade-last absolute flex p-2 right-5 bottom-5 bg-zinc-100 rounded-full transition-all cursor-pointer opacity-85 hover:(-translate-y-1 opacity-100) active:(scale-80)"
         @click="copy"
       >
         <span class="i-tabler-link" />
@@ -109,13 +115,13 @@ const copy = () => {
   animation-timing-function: ease;
 }
 .dot-easy {
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 }
 .dot-medium {
-  animation-delay: 2s;
+  animation-delay: 1.5s;
 }
 .dot-hard {
-  animation-delay: 3s;
+  animation-delay: 2.5s;
 }
 
 @keyframes fade-appear {
@@ -132,7 +138,7 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 4s;
+  animation-delay: 3.5s;
 }
 
 .fade-see-you {
@@ -140,7 +146,7 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 5s;
+  animation-delay: 4.5s;
 }
 
 .fade-last {
@@ -148,6 +154,6 @@ const copy = () => {
   animation-name: fade-appear;
   animation-duration: 1s;
   animation-timing-function: ease;
-  animation-delay: 6s;
+  animation-delay: 5.5s;
 }
 </style>

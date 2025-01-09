@@ -1,5 +1,6 @@
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
+const questions = ref<Question[]>([])
 const score = reactive<Scoring>({
   easy: null,
   medium: null,
@@ -43,9 +44,23 @@ export default function useQuiz() {
     return new RegExp(answers.pattern, 'gi').test(answer)
   }
 
+  const baseApiUrl = import.meta.env.VITE_API_URL
+
+  const fetchQuestions = async () => {
+    const response = await fetch(`${baseApiUrl}retrieve-questions`)
+
+    const { data } = (await response.json()) as {
+      data: { easy: Question; medium: Question; hard: Question }
+    }
+
+    questions.value = [data.easy, data.medium, data.hard]
+  }
+
   return {
+    questions,
     score,
     isValid,
     isValidPattern,
+    fetchQuestions,
   }
 }

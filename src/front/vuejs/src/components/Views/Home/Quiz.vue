@@ -1,20 +1,16 @@
 <script setup lang="ts">
 import { computed, provide, ref } from 'vue'
-import testData from '@/../tests/fixtures/question-solo.json'
-import testData2 from '@/../tests/fixtures/question-multi.json'
-import testData3 from '@/../tests/fixtures/question-pattern.json'
 
 import QuestionComponent from '@/components/Views/Home/Quiz/Question.vue'
 import Card from '@/components/UI/Card.vue'
 import Answers from '@/components/Views/Home/Quiz/Answers.vue'
-import useQuiz from '@/composables/useQuiz.ts'
 import Btn from '@/components/UI/Btn.vue'
+import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['ended'])
 
-const { score, isValid } = useQuiz()
+const { questions, score, isValid } = useQuiz()
 
-let question: Question = testData2 as Question
 const state = ref<QuestionState>('guessing')
 const num = ref(1)
 const chosenAnswer = ref<string | string[] | null>(null)
@@ -29,12 +25,20 @@ provide('chosenAnswer', {
 })
 provide('questionState', state)
 
+const currentQuestion = computed<Question | null>(() => {
+  if (questions.value[num.value - 1] != null) {
+    return questions.value[num.value - 1]
+  }
+
+  return null
+})
+
 const answered = (answer: string | string[]) => {
   chosenAnswer.value = answer
   state.value = 'answered'
 
   // if question solo, no button => answer directly
-  if (['solo', 'pattern'].includes(question.type)) {
+  if (['solo', 'pattern'].includes(currentQuestion.value!.type)) {
     validation()
     return
   }
@@ -43,7 +47,7 @@ const answered = (answer: string | string[]) => {
 const validation = () => {
   if (chosenAnswer.value !== null) {
     state.value = 'validated'
-    score[currentDifficulty()] = isValid(question, chosenAnswer.value)
+    score[currentDifficulty()] = isValid(currentQuestion.value!, chosenAnswer.value)
   }
 }
 
@@ -55,7 +59,6 @@ const goNext = () => {
     return
   }
 
-  question = { ...testData3 } as Question
   state.value = 'guessing'
   ++num.value
 }
@@ -70,10 +73,10 @@ const btnLabel = computed(() => {
 </script>
 
 <template>
-  <Card class="flex flex-col gap-3">
-    <QuestionComponent :question="question" :num="num" :score="score" />
+  <Card v-if="currentQuestion !== null" class="flex flex-col gap-3">
+    <QuestionComponent :question="currentQuestion" :num="num" :score="score" />
     <hr />
-    <Answers :question="question" @answer="answered" />
+    <Answers :question="currentQuestion" @answer="answered" />
     <Transition mode="out-in" name="slide-down">
       <div v-if="state === 'answered'">
         <hr class="mb-4" />

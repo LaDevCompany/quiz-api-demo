@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import Card from '@/components/UI/Card.vue'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useIntervalFn } from '@vueuse/core'
+import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['start'])
+
+const { fetchQuestions, questions } = useQuiz()
 
 const timer = ref(3)
 
@@ -17,6 +20,10 @@ watch(timer, () => {
     emit('start')
   }
 })
+
+onMounted(() => {
+  fetchQuestions()
+})
 </script>
 
 <template>
@@ -26,6 +33,10 @@ watch(timer, () => {
     <h1 class="text-4xl font-bold">✨ Le quiz du jour démarre dans :</h1>
 
     <p id="number-animation" class="text-4xl text-blue-300 mt-6">{{ timer }} ...</p>
+
+    <p v-if="timer <= 0 && questions.length === 0">
+      Une erreur est survenue lors de la récupération des questions, réessayez demain !
+    </p>
   </Card>
 </template>
 

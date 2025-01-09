@@ -49,12 +49,19 @@ const send = (id: string) => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-    <AnswerClassic
-      v-for="answer in answers"
-      :answer="answer"
-      :status="getStatus(answer)"
-      @send="send"
-    />
+  <div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <AnswerClassic
+        v-for="answer in answers"
+        :answer="answer"
+        :status="getStatus(answer)"
+        @send="send"
+      />
+    </div>
+
+    <div v-show="questionState === 'guessing'" class="mt-4">
+      <hr />
+      <p class="mt-6 mb-4 pl-4 text-blue-400">Plusieurs réponses sont possible</p>
+    </div>
   </div>
 </template>

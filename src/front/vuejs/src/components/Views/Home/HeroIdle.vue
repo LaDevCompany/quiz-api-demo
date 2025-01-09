@@ -6,6 +6,7 @@ import { ref } from 'vue'
 const emit = defineEmits(['start'])
 
 const showHelper = ref(false)
+const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
 </script>
 
 <template>
@@ -25,13 +26,17 @@ const showHelper = ref(false)
       </div>
 
       <Transition name="slide-down">
-        <p v-show="showHelper" class="mt-4 text-slate-500 lg:px-24">
+        <p v-show="showHelper" class="mt-8 text-slate-500 lg:px-24">
           Cette mini application sert de démo à l'utilisation de
-          <a href="https://quiz-api.com">Quiz Api</a>, service de base de données de questions,
-          permettant de créer vous même des jeux et des applications de quiz simplement et
-          rapidement !<br /><br />Le code source de cette démo est open source, consultable
+          <a :href="quizApiUrl" target="_blank">Quiz Api</a>, service de base de données de
+          questions, permettant de créer vous même des jeux et des applications de quiz simplement
+          et rapidement !<br /><br />Le code source de cette démo est open source, consultable
           librement sur
-          <a href="https://github.com/LaDevCompany/quiz-api-demo" rel="noopener nofollow">Github</a
+          <a
+            href="https://github.com/LaDevCompany/quiz-api-demo"
+            rel="noopener nofollow"
+            target="_blank"
+            >Github</a
           >, ça vous permet de démarrer sereinement votre app avec <strong>Quiz API</strong>
         </p>
       </Transition>

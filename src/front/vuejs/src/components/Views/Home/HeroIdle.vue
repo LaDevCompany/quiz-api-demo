@@ -29,9 +29,9 @@ const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
         <p v-show="showHelper" class="mt-8 text-slate-500 lg:px-24">
           Cette mini application sert de démo à l'utilisation de
           <a :href="quizApiUrl" target="_blank">Quiz Api</a>, service de base de données de
-          questions, permettant de créer vous même des jeux et des applications de quiz simplement
-          et rapidement !<br /><br />Le code source de cette démo est open source, consultable
-          librement sur
+          questions, permettant de créer vous même des jeux et des applications de quiz ou de
+          questions simplement et rapidement !<br /><br />Le code source de cette démo est open
+          source, consultable librement sur
           <a
             href="https://github.com/LaDevCompany/quiz-api-demo"
             rel="noopener nofollow"

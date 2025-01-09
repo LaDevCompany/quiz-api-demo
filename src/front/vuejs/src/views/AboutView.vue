@@ -20,7 +20,8 @@ const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
       <p>
         Daily Quiz est une mini app qui permet de faire une démonstration de l'utilisation de
         <a :href="quizApiUrl" target="_blank">Quiz Api</a>, service de base de données de questions,
-        permettant de créer vous même des jeux et des applications de quiz simplement et rapidement
+        permettant de créer vous même des jeux et des applications de quiz ou de questions
+        simplement et rapidement
       </p>
       <p>
         Le code source de cette démo est open source, consultable librement sur

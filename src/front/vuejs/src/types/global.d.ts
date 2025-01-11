@@ -17,6 +17,7 @@ declare global {
 
   export interface AnswerPattern {
     id: string
+    title: string
     pattern: string
   }
 

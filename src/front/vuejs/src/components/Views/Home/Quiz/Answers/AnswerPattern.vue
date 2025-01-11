@@ -66,7 +66,7 @@ watchImmediate(questionState, (newState) => {
 
     <Transition>
       <div v-show="questionState === 'validated'" class="text-2xl text-center mt-6">
-        {{ answers.pattern }}
+        {{ answers.title }}
       </div>
     </Transition>
   </form>

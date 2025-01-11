@@ -44,7 +44,7 @@ readonly class QuestionDto
             id: $data['id'],
             type: $data['type'],
             title: $data['title'],
-            description: $data['description'],
+            description: $data['description'] ?? '',
             difficulty: $data['difficulty'],
             theme: $data['theme'],
             answers: $data['answers'],

@@ -6,15 +6,18 @@ readonly class PatternAnswerDto
 {
     protected function __construct(
         public string $id,
+        public string $title,
         public string $pattern,
     ) {}
 
     public static function create(
         string $id,
+        array $title,
         array $pattern,
     ): static {
         return new static(
             $id,
+            $title[config('services.quiz-api.preferred_lang')],
             $pattern[config('services.quiz-api.preferred_lang')]
         );
     }
@@ -23,6 +26,7 @@ readonly class PatternAnswerDto
     {
         return self::create(
             id: $data['id'],
+            title: $data['title'],
             pattern: $data['pattern'],
         );
     }
@@ -31,6 +35,7 @@ readonly class PatternAnswerDto
     {
         return [
             'id' => $this->id,
+            'title' => $this->title,
             'pattern' => $this->pattern,
         ];
     }

@@ -10,6 +10,7 @@ export default defineConfig({
   plugins: [vue(), vueDevTools(), UnoCSS()],
   resolve: {
     alias: {
+      '@tests': fileURLToPath(new URL('./tests', import.meta.url)),
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },

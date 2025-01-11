@@ -1,15 +1,15 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import AnswerSolo from '@/components/Views/Home/Quiz/Answers/AnswerSolo.vue'
-import testData from '@tests/fixtures/question-solo.json'
+import testData from '@tests/fixtures/question-multi.json'
 import { ref } from 'vue'
+import AnswerMulti from '../../src/components/Views/Home/Quiz/Answers/AnswerMulti.vue'
 
-describe('AnswerSolo', () => {
+describe('AnswerMulti', () => {
   it('renders properly', () => {
     const question: Question = testData as Question
 
-    const wrapper = mount(AnswerSolo, {
+    const wrapper = mount(AnswerMulti, {
       props: {
         answers: question.answers,
       },
@@ -24,9 +24,10 @@ describe('AnswerSolo', () => {
       },
     })
 
-    expect(wrapper.element.children.length).toBe(3)
-    expect(wrapper.text()).toContain('50°')
-    expect(wrapper.text()).toContain('100°')
-    expect(wrapper.text()).toContain('120°')
+    expect(wrapper.find('.grid').element.children.length).toBe(4)
+    expect(wrapper.text()).toContain('Plusieurs réponses sont possible')
+    ;['Brésil', 'Égypte', 'Afrique du Sud', 'Kenya'].forEach((country) => {
+      expect(wrapper.text()).toContain(country)
+    })
   })
 })

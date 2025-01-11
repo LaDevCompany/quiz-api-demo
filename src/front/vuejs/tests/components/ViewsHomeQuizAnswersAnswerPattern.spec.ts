@@ -1,15 +1,15 @@
 import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
-import AnswerSolo from '@/components/Views/Home/Quiz/Answers/AnswerSolo.vue'
-import testData from '@tests/fixtures/question-solo.json'
+import testData from '@tests/fixtures/question-pattern.json'
 import { ref } from 'vue'
+import AnswerPattern from '@/components/Views/Home/Quiz/Answers/AnswerPattern.vue'
 
-describe('AnswerSolo', () => {
+describe('AnswerPattern', () => {
   it('renders properly', () => {
     const question: Question = testData as Question
 
-    const wrapper = mount(AnswerSolo, {
+    const wrapper = mount(AnswerPattern, {
       props: {
         answers: question.answers,
       },
@@ -24,9 +24,6 @@ describe('AnswerSolo', () => {
       },
     })
 
-    expect(wrapper.element.children.length).toBe(3)
-    expect(wrapper.text()).toContain('50°')
-    expect(wrapper.text()).toContain('100°')
-    expect(wrapper.text()).toContain('120°')
+    expect(wrapper.html()).toContain('Tapez la réponse ...')
   })
 })

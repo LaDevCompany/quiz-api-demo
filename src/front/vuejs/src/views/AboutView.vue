@@ -12,7 +12,7 @@ const quizApiUrl = import.meta.env.VITE_QUIZAPI_URL
 <template>
   <main class="container w-full px-2 lg:px-0 my-4 lg:my-1">
     <Card
-      class="flex flex-col !py-12 !px-12 gap-2 text-slate-8 dark:text-slate-3 shadow-2xl overflow-hidden"
+      class="flex flex-col !py-12 !px-6 md:!px-12 gap-2 text-slate-8 dark:text-slate-3 shadow-2xl overflow-hidden"
     >
       <h1 class="text-4xl font-bold text-center">Daily Quiz - à propos</h1>
 

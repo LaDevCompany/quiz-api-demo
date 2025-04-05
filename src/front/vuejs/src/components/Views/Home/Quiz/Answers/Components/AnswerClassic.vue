@@ -41,8 +41,7 @@ const send = () => {
     class="border-5 border-solid border-zinc-3 rounded-2 px-6 py-4 text-center shadow transition-all duration-400 text-lg select-none"
     :class="[colorBg]"
     @click="send"
-    @keyup.enter="send"
-    @keyup.space="send"
+    @keyup.enter.space="send"
     tabindex="0"
   >
     {{ answer.title }}

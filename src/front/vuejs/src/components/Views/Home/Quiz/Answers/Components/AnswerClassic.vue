@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { computed, inject, type Ref } from 'vue'
+import { computed } from 'vue'
+import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['send'])
 
-const questionState = inject<Ref<QuestionState>>('questionState')!
+const { state: questionState } = useQuiz()
 
 const { answer, status = 'indeterminate' } = defineProps<{
   answer: AnswerClassic

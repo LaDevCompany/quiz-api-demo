@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import AnswerClassic from '@/components/Views/Home/Quiz/Answers/Components/AnswerClassic.vue'
-import { inject, type Ref } from 'vue'
+import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['answer'])
-const { chosenAnswer, setChosenAnswer } = inject<{
-  chosenAnswer: Ref<string | null>
-  setChosenAnswer: (answer: string) => void
-}>('chosenAnswer')!
+
+const { chosenAnswer } = useQuiz()
 
 const { answers } = defineProps<{
   answers: AnswerClassic[]
@@ -36,7 +34,7 @@ const getStatus = (answer: AnswerClassic): AnswerClassicStatus => {
 const send = (id: string) => {
   emit('answer', id)
 
-  setChosenAnswer(id)
+  chosenAnswer.value = id
 }
 </script>
 

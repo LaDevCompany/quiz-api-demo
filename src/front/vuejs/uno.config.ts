@@ -9,7 +9,7 @@ import {
 
 export default defineConfig({
   content: {
-    filesystem: ['**/*.{html,js,ts,vue}'],
+    filesystem: ['./*.{html,js,ts,vue}'],
   },
   presets: [
     presetUno(),

@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { inject, computed, useTemplateRef, nextTick, type Ref } from 'vue'
+import { computed, useTemplateRef, nextTick } from 'vue'
 import Btn from '@/components/UI/Btn.vue'
 import { watchImmediate } from '@vueuse/core'
 import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['answer'])
-const questionState = inject<Ref<QuestionState>>('questionState')!
 
 const { answers } = defineProps<{
   answers: AnswerPattern
 }>()
 const answer = defineModel<string>()
 
-const { isValidPattern } = useQuiz()
+const { state: questionState, isValidPattern } = useQuiz()
 
 const input = useTemplateRef<HTMLInputElement>('input')
 

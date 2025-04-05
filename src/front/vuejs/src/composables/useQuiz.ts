@@ -6,6 +6,8 @@ const score = reactive<Scoring>({
   medium: null,
   hard: null,
 })
+const chosenAnswer = ref<string | string[] | null>(null)
+const state = ref<QuestionState>('guessing')
 
 export default function useQuiz() {
   const isValid = (question: Question, answers: string | string[]): boolean => {
@@ -59,6 +61,8 @@ export default function useQuiz() {
   return {
     questions,
     score,
+    chosenAnswer,
+    state,
     isValid,
     isValidPattern,
     fetchQuestions,

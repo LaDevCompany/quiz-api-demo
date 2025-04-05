@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, provide, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import QuestionComponent from '@/components/Views/Home/Quiz/Question.vue'
 import Card from '@/components/UI/Card.vue'
@@ -9,21 +9,9 @@ import useQuiz from '@/composables/useQuiz.ts'
 
 const emit = defineEmits(['ended'])
 
-const { questions, score, isValid } = useQuiz()
+const { questions, score, chosenAnswer, state, isValid } = useQuiz()
 
-const state = ref<QuestionState>('guessing')
 const num = ref(1)
-const chosenAnswer = ref<string | string[] | null>(null)
-
-const setChosenAnswer = (answer: string | string[]) => {
-  chosenAnswer.value = answer
-}
-
-provide('chosenAnswer', {
-  chosenAnswer,
-  setChosenAnswer,
-})
-provide('questionState', state)
 
 const currentQuestion = computed<Question | null>(() => {
   if (questions.value[num.value - 1] != null) {

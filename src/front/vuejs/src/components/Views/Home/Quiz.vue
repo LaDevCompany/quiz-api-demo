@@ -88,4 +88,5 @@ const btnLabel = computed(() => {
       </div>
     </Transition>
   </Card>
+  <Card v-else class="text-center">Une erreur est survenue, tentez de rafraîchir la page</Card>
 </template>

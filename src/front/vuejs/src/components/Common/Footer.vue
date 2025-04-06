@@ -14,7 +14,7 @@ import { version } from '@/../package.json'
       class="grid grid-cols-3 justify-center gap-2 text-center text-slate-500 dark:text-slate-300 text-sm"
     >
       <span>Autres sites : </span>
-      <a href="https://quiz-api.com" target="_blank">Quiz API</a>
+      <a href="https://quiz-api.fr" target="_blank">Quiz API</a>
       <a href="https://quick-poker.fr" target="_blank">Quick Poker</a>
       <a href="https://meilleur-ecran.fr" target="_blank">Meilleur écran fr</a>
       <a href="https://histor-ia.fr/" target="_blank">Historia</a>

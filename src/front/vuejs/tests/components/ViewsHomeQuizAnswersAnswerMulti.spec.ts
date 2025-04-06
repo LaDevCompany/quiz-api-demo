@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
 import testData from '@tests/fixtures/question-multi.json'
-import { ref } from 'vue'
 import AnswerMulti from '../../src/components/Views/Home/Quiz/Answers/AnswerMulti.vue'
 
 describe('AnswerMulti', () => {
@@ -13,16 +12,9 @@ describe('AnswerMulti', () => {
       props: {
         answers: question.answers,
       },
-      global: {
-        provide: {
-          chosenAnswer: {
-            chosenAnswer: ref(''),
-            setChosenAnswer: () => {},
-          },
-          questionState: ref<QuestionState>('guessing'),
-        },
-      },
     })
+
+    console.log(wrapper.html())
 
     expect(wrapper.find('.grid').element.children.length).toBe(4)
     expect(wrapper.text()).toContain('Plusieurs réponses sont possible')

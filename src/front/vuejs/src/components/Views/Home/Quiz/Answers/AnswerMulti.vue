@@ -5,6 +5,10 @@ import useQuiz from '@/composables/useQuiz.ts'
 const emit = defineEmits(['answer'])
 const { chosenAnswer, state: questionState } = useQuiz()
 
+const { answers } = defineProps<{
+  answers: AnswerClassic[]
+}>()
+
 const getStatus = (answer: AnswerClassic): AnswerClassicStatus => {
   if (chosenAnswer.value === null) {
     return 'indeterminate'
@@ -36,7 +40,7 @@ const send = (id: string) => {
 
   emit('answer', currentAnswersId)
 
-  setChosenAnswer(currentAnswersId)
+  chosenAnswer.value = currentAnswersId
 }
 </script>
 
